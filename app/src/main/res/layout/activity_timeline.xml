@@ -26,6 +26,6 @@
         tools:layout_marginStart="0dp"
         tools:layout_marginTop="0dp" />
 
-</androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
 </RelativeLayout>
