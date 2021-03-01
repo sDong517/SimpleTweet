@@ -5,16 +5,21 @@ import com.codepath.apps.restclienttemplate.TimeFormatter;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.parceler.Parcel;
 
 import java.util.ArrayList;
 import java.util.List;
 
+@Parcel
 public class Tweet {
+
     public String body;
     public String createdAt;
     public User user;
-
     public long id;
+
+    public Tweet(){}    //Required by Parcel to have empty constructor
+
 
     public static Tweet fromJson(JSONObject jsonObject) throws JSONException {
         Tweet tweet = new Tweet();
@@ -31,6 +36,11 @@ public class Tweet {
             tweets.add(fromJson(jsonArray.getJSONObject((i))));
         }
         return tweets;
+    }
+
+    //Getters
+    public String getBody() {
+        return body;
     }
 
 }
