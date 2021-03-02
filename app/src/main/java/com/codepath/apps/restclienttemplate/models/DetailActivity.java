@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.codepath.apps.restclienttemplate.R;
 
 import org.parceler.Parcels;
@@ -34,7 +35,16 @@ public class DetailActivity extends AppCompatActivity {
         //tvDetailBody.setText(body);                                 //<------ THIS WORKS
 
         //Instead of passing things one by one, we can simply use Parcels
-        Tweet tweet = Parcels.unwrap(getIntent().getParcelableExtra("text"));
+        Tweet tweet = Parcels.unwrap(getIntent().getParcelableExtra("tweet"));
+        //User user = Parcels.unwrap(getIntent().getParcelableExtra("tweet"));
         tvDetailBody.setText(tweet.getBody());
+        tvDetailName.setText(tweet.user.name);
+        tvDetailNameTag.setText("@" + tweet.user.screenName);
+
+
+
+
+        //ivDetailPicture.
+        //Glide.with().load(tweet.user.publicImageUrl).into(ivDetailPicture);
     }
 }

@@ -111,7 +111,8 @@ public class TweetsAdapter extends RecyclerView.Adapter<TweetsAdapter.ViewHolder
 
                     //i.putExtra("Text", tweet.getBody());          //<-----THIS WORKS
 
-                    i.putExtra("Tweet", Parcels.wrap(tweet));
+                    i.putExtra("tweet", Parcels.wrap(tweet));
+                    //Glide.with(context).load(tweet.user.publicImageUrl).into(ivDetailedPicture);
 
 
                     context.startActivity(i);
