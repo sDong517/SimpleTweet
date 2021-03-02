@@ -42,6 +42,8 @@ GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
 Describe any challenges encountered while building the app.
 
+Currently trying to implement pictures into onClick DetailActivity. 
+
 ## Open-source libraries used
 
 - [Android Async HTTP](https://github.com/codepath/CPAsyncHttpClient) - Simple asynchronous HTTP requests with JSON parsing
