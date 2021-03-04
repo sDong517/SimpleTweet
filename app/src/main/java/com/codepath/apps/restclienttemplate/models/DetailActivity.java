@@ -30,7 +30,6 @@ public class DetailActivity extends AppCompatActivity {
         tvDetailNameTag = findViewById(R.id.tvDetailNameTag);
         ivDetailPicture = findViewById(R.id.ivDetailPicture);
 
-
         //String body = getIntent().getStringExtra("Text");           //<------ THIS WORKS
         //tvDetailBody.setText(body);                                 //<------ THIS WORKS
 
@@ -41,10 +40,6 @@ public class DetailActivity extends AppCompatActivity {
         tvDetailName.setText(tweet.user.name);
         tvDetailNameTag.setText("@" + tweet.user.screenName);
 
-
-
-
-        //ivDetailPicture.
-        //Glide.with().load(tweet.user.publicImageUrl).into(ivDetailPicture);
+        Glide.with(this).load(tweet.user.publicImageUrl).into(ivDetailPicture);
     }
 }
