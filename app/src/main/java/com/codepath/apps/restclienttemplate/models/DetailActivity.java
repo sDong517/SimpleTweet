@@ -19,6 +19,7 @@ public class DetailActivity extends AppCompatActivity {
     TextView tvDetailName;
     TextView tvDetailNameTag;
     ImageView ivDetailPicture;
+    //ImageView ivMedia;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +30,7 @@ public class DetailActivity extends AppCompatActivity {
         tvDetailName = findViewById(R.id.tvDetailName);
         tvDetailNameTag = findViewById(R.id.tvDetailNameTag);
         ivDetailPicture = findViewById(R.id.ivDetailPicture);
+        //ivMedia = findViewById(R.id.ivMedia);
 
         //String body = getIntent().getStringExtra("Text");           //<------ THIS WORKS
         //tvDetailBody.setText(body);                                 //<------ THIS WORKS
@@ -41,5 +43,6 @@ public class DetailActivity extends AppCompatActivity {
         tvDetailNameTag.setText("@" + tweet.user.screenName);
 
         Glide.with(this).load(tweet.user.publicImageUrl).into(ivDetailPicture);
+        //Glide.with(this).load(tweet.user.publicMediaUrl).into(ivMedia);
     }
 }

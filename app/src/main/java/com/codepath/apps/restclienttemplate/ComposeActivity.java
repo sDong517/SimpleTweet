@@ -4,10 +4,13 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.codepath.apps.restclienttemplate.models.Tweet;
@@ -24,6 +27,7 @@ public class ComposeActivity extends AppCompatActivity {
     public static final String TAG = "ComposeActivity";
 
     EditText etCompose;
+    TextView tvChar;
     Button btnTweet;
     TwitterClient client;
     @Override
@@ -35,6 +39,25 @@ public class ComposeActivity extends AppCompatActivity {
 
         etCompose = findViewById(R.id.etCompose);
         btnTweet = findViewById(R.id.btnTweet);
+        tvChar = findViewById(R.id.tvChar);
+
+
+        // Character count tracker
+        etCompose.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+            }
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                tvChar.setText(String.valueOf(charSequence.length()) + "/280");
+                String tweetText = etCompose.getText().toString();
+                btnTweet.setEnabled(!tweetText.isEmpty() && tweetText.length() <= 280);
+            }
+            @Override
+            public void afterTextChanged(Editable editable) {
+                //tvChar.setText(280 - editable.toString().length() + "/280");
+            }
+        });
 
         //Click listener on button
         btnTweet.setOnClickListener(new View.OnClickListener() {
