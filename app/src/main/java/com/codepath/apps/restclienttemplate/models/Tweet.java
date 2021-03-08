@@ -2,6 +2,7 @@ package com.codepath.apps.restclienttemplate.models;
 
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
+import androidx.room.ForeignKey;
 import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
 
@@ -16,7 +17,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Parcel
-@Entity
+@Entity(foreignKeys = @ForeignKey(entity = User.class, parentColumns = "id", childColumns = "userId"))
 public class Tweet {
 
     @ColumnInfo
@@ -29,7 +30,7 @@ public class Tweet {
     public String createdAt;
 
     @ColumnInfo
-    public String userId;
+    public Long userId;
 
     @Ignore
     public User user;
@@ -42,9 +43,10 @@ public class Tweet {
         tweet.body = jsonObject.getString("text");
         tweet.createdAt = TimeFormatter.getTimeDifference(jsonObject.getString("created_at"));
 
-        //User user = User.fromJson(jsonObject.getJSONObject("user"));
-        tweet.user = User.fromJson(jsonObject.getJSONObject("user"));
-
+        //Set up for 'room'
+        User user = User.fromJson(jsonObject.getJSONObject("user"));
+        tweet.user = user;
+        tweet.userId = user.id;
 
         tweet.id = jsonObject.getLong("id");
         return tweet;
