@@ -33,9 +33,9 @@ The following **additional** features are implemented:
 
 Here's a walkthrough of implemented user stories:
 
-<img src='Walkthrough4.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<img src='Walkthrough6.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
-##Persistence
+## Persistence
 Currently set to show the last five saved tweets. 
 <img src='Walkthrough5.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
